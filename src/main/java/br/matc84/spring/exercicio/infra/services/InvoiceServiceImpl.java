@@ -16,6 +16,7 @@ import br.matc84.spring.exercicio.domain.ports.InvoiceServicePort;
 
 @Service
 public class InvoiceServiceImpl implements InvoiceServicePort {
+
     private final InvoiceRepositoryPort invoiceRepositoryPort;
     private static final Logger LOGGER = LoggerFactory.getLogger(InvoiceServiceImpl.class);
 
@@ -38,4 +39,10 @@ public class InvoiceServiceImpl implements InvoiceServicePort {
 
         throw new InvoiceNotFoundException(uuid);
     }
+
+    @Override
+    public InvoiceModel create(BigDecimal totalValue, LocalDate dueDate) {
+        return this.invoiceRepositoryPort.create(totalValue, dueDate);
+    }
+
 }

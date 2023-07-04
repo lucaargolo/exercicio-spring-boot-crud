@@ -9,6 +9,7 @@ import br.matc84.spring.exercicio.domain.models.ApplicationErrorModel;
 import br.matc84.spring.exercicio.domain.models.ErrorModel;
 
 public class ExceptionResponseEntityHandler {
+
     private static final String CLIENT_RESPONSE_DEFAULT_MESSAGE = "Something went wrong. Please contact system administrators!";
     private ExceptionResponseEntityHandler() { }
 
@@ -34,4 +35,5 @@ public class ExceptionResponseEntityHandler {
 
         return new ResponseEntity<>(error, status);
     }
+
 }

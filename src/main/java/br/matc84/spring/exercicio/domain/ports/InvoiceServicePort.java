@@ -7,6 +7,11 @@ import java.util.List;
 import br.matc84.spring.exercicio.domain.models.InvoiceModel;
 
 public interface InvoiceServicePort {
-    public List<InvoiceModel> getAll();
-    public InvoiceModel findById(String uuid);
+
+    List<InvoiceModel> getAll();
+
+    InvoiceModel findById(String uuid);
+
+    InvoiceModel create(BigDecimal totalValue, LocalDate dueDate);
+
 }

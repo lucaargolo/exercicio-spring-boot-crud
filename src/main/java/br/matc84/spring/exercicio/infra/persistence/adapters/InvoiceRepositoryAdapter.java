@@ -2,11 +2,8 @@ package br.matc84.spring.exercicio.infra.persistence.adapters;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
-import java.util.UUID;
 import java.util.stream.Collectors;
 
 import br.matc84.spring.exercicio.domain.models.InvoiceModel;
@@ -35,5 +32,14 @@ public class InvoiceRepositoryAdapter implements InvoiceRepositoryPort {
         Optional<InvoiceEntity> invoice = this.invoiceRepository.findById(uuid);
 
         return invoice.map(InvoiceMapper::toModel);
+    }
+
+    @Override
+    public InvoiceModel create(final BigDecimal totalValue, final LocalDate dueDate) {
+        InvoiceEntity invoice = InvoiceEntity.InvoiceEntityBuilder.anInvoiceEntity().withTotalValue(totalValue).withDueDate(dueDate).build();
+
+        this.invoiceRepository.save(invoice);
+
+        return InvoiceMapper.toModel(invoice);
     }
 }

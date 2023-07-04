@@ -27,4 +27,5 @@ public class SpringConfiguration {
     public InvoiceServicePort invoiceServicePort() {
         return new InvoiceServiceImpl(this.invoiceRepositoryPort());
     }
+
 }

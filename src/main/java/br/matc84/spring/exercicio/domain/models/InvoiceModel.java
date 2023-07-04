@@ -5,11 +5,15 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class InvoiceModel {
+
     private String uuid;
     private BigDecimal totalValue;
     private LocalDate dueDate;
     private LocalDateTime createdAt;
-    private InvoiceModel() { }
+
+    private InvoiceModel() {
+
+    }
 
     public String getUuid() {
         return uuid;
@@ -28,11 +32,15 @@ public class InvoiceModel {
     }
 
     public static final class InvoiceModelBuilder {
+
         private String uuid;
         private BigDecimal totalValue;
         private LocalDate dueDate;
         private LocalDateTime createdAt;
-        private InvoiceModelBuilder() { }
+
+        private InvoiceModelBuilder() {
+
+        }
 
         public static InvoiceModelBuilder anInvoiceModel() {
             return new InvoiceModelBuilder();
@@ -68,5 +76,6 @@ public class InvoiceModel {
 
             return invoiceModel;
         }
+
     }
 }

@@ -27,4 +27,5 @@ public class ApplicationControllerAdvice {
         
         return ExceptionResponseEntityHandler.createResponseEntityFor(ex, HttpStatus.BAD_REQUEST, errors);
     }
+
 }

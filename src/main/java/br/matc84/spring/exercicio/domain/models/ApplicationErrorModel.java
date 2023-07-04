@@ -3,12 +3,16 @@ package br.matc84.spring.exercicio.domain.models;
 import java.util.List;
 
 public class ApplicationErrorModel {
+
     private Integer statusCode;
     private String statusDescription;
     private String clientMessage;
     private String developerMessage;
     private List<ErrorModel> errors;
-    private ApplicationErrorModel() { }
+
+    private ApplicationErrorModel() {
+
+    }
 
     public Integer getStatusCode() {
         return statusCode;
@@ -80,7 +84,4 @@ public class ApplicationErrorModel {
         }
     }
 
-
-
-   
 }

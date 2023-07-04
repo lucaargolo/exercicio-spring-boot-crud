@@ -8,7 +8,11 @@ import java.util.Optional;
 import br.matc84.spring.exercicio.domain.models.InvoiceModel;
 
 public interface InvoiceRepositoryPort {
-    public List<InvoiceModel> getAll();
-    public Optional<InvoiceModel> findById(String uuid);
-    public InvoiceModel create(BigDecimal totalValue, LocalDate dueDate);
+
+    List<InvoiceModel> getAll();
+
+    Optional<InvoiceModel> findById(String uuid);
+
+    InvoiceModel create(BigDecimal totalValue, LocalDate dueDate);
+
 }

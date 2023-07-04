@@ -20,6 +20,7 @@ import br.matc84.spring.exercicio.domain.ports.InvoiceServicePort;
 @RestController
 @RequestMapping(value = InvoiceController.API_URL)
 public class InvoiceController {
+
     public static final String API_URL = "/v1/invoices";
     private final InvoiceServicePort invoiceServicePort;
 
@@ -41,6 +42,9 @@ public class InvoiceController {
 
     @PostMapping
     public ResponseEntity<Object> create(@RequestBody @Validated InvoiceDTO invoice) {
-        return new ResponseEntity<>(new Object(), HttpStatus.NO_CONTENT);
+        InvoiceModel response = this.invoiceServicePort.create(invoice.totalValue, invoice.dueDate);
+
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
+
 }
